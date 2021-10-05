@@ -1,0 +1,157 @@
+<html>
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196903236-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-196903236-1');
+    </script>
+    <link rel="stylesheet" href="./css_animation/animsition.css">
+    <link href="./css/styles.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="./img/global/favicon.ico" />
+    <title>Wish</title>
+</head>
+
+<body>
+    <div class="screen" style="background-color: #0098D3;">
+        <div class="animsition"
+            style=" position:relative; width:100%; height: 100%; overflow: hidden; display: inline-flexbox;">
+            <img src="./img/index/tp_wave.png" class="tp_wave_1">
+            <img src="./img/index/tp_wave.png" class="tp_wave_2">
+            <div class="pantalla" style=" width: 100%; height: 100%; position: fixed; margin: 25vw; ">
+                <div class="logodrpepper">
+                    <img src="./img/index/logo_drpepper.png" alt="logo_drpepper" style="width: 35vw;">
+                </div>
+                <div class="textos_learning">
+                    <div class="learning">
+                        <span>
+                            Learning </br>
+                            Solutions
+                        </span>
+                    </div>
+                    <div class="Qateam">
+                        <span style="margin: auto;">
+                            + QA Team
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="intro">
+            <div class="btnIndex">
+                <img src="./img/index/arrowintro.png" style="width: 3vw;">
+            </div>
+        </div>
+        <div class="overlay_oak">
+            <div class="cont" style="align-items: center;">
+                <img src="./img/index/OAK.gif" style="display: none; margin-top: 10vw; margin-left: 15vw; width: 20vw; opacity: 1;" class="tree">
+            </div>
+        </div>        
+    </div>
+</body>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/animsition.js"></script>
+<script src="../../js/script.js"></script>
+
+<script>
+
+    $(".btnIndex").click(function () {
+        $(".btnIndex").animate({
+            opacity: "0"
+        }, 500)
+        $(".logodrpepper").animate({
+            opacity: "0"
+        }, 500)
+        $(".tp_wave_1").animate({
+            top: "-60vw",
+        }, 500)
+        $(".tp_wave_2").animate({
+            left: "15vw",
+            top: "27vw"
+        }, 500)
+        $(".textos_learning").animate({
+            top: "-12vw"
+        }, 300, function () {
+            setTimeout(function () {
+                $(".tp_wave_1").animate({
+                    top: "-100vw",
+                }, 2500)
+                $(".tp_wave_2").animate({
+                    left: "15vw",
+                    top: "100vw"
+                }, 2500)
+                $(".textos_learning").animate({
+                    top: "-100vw"
+                }, 500)
+                $(".overlay_oak").toggleClass("scale-up-center");
+                setTimeout(function () {                    
+                    $(".tree").css("display", "block");
+                    $(".tree").toggleClass("scale-up-center");
+                    $(".tree").animate({
+                        opacity: 1,
+                        width: "30vw",
+                        height:"55vh"
+                    }, 100, function () {
+                        setTimeout(function () {
+                            localStorage.setItem("url", "./welcome.html")
+                            const redireccion = './redirecciones/redireccion.html';
+                            window.location.href = redireccion; 
+                        }, 5000);
+                    })
+                }, 500);
+            }, 1000);
+        })
+    });
+
+    $(document).ready(function () {
+        $(".tp_wave_2").animate({
+            left: "-18vw",
+        }, 500, function () {
+            $(".logodrpepper").toggleClass("scale-up-center")
+            $(".tp_wave_2").animate({
+                top: "35vw"
+            }, 300, function () {
+                $(".tp_wave_1").animate({
+                    top: "-40vw",
+                }, 500)
+                $(".intro").animate({
+                    top: "20vw",
+                }, 500)
+            })
+        })
+
+        //  script para que funcione la libreria de animacion
+        $(".animsition").animsition({
+            inClass: 'fade-in',
+            outClass: 'fade-out',
+            inDuration: 1500,
+            outDuration: 800,
+            linkElement: '.animsition-link',
+            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+            loading: true,
+            loadingParentElement: 'body', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            loadingInner: '', // e.g '<img src="loading.svg" />'
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: ['animation-duration', '-webkit-animation-duration'],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay: false,
+            overlayClass: 'animsition-overlay-slide',
+            overlayParentElement: 'body',
+            transition: function (url) { window.location.href = url; }
+        });
+        //  script para que funcione la libreria de animacion
+
+
+
+    }); // fin jQuery
+</script>
+
+</html>
