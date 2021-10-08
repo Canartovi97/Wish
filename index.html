@@ -18,111 +18,126 @@
 
 <body>
     <div class="screen" style="background-color: #0098D3;">
-        <div class="animsition"
-            style=" position:relative; width:100%; height: 100%; overflow: hidden; display: inline-flexbox;">
+        <div class="animsition">
             <img src="./img/index/tp_wave.png" class="tp_wave_1">
-            <img src="./img/index/tp_wave.png" class="tp_wave_2">
-            <div class="pantalla" style=" width: 100%; height: 100%; position: fixed; margin: 25vw; ">
-                <div class="logodrpepper">
-                    <img src="./img/index/logo_drpepper.png" alt="logo_drpepper" style="width: 35vw;">
-                </div>
-                <div class="textos_learning">
-                    <div class="learning">
-                        <span>
-                            Learning </br>
-                            Solutions
-                        </span>
+            <div class="pantalla">
+                <div class="btn_all_screen">
+                    <header class="container-header-index">
+                        <div class="logo_header_tp">
+                            <img width="60vw" src="./img/global/tp.png" alt="Logo_tp">
+                        </div>
+                        <div class="logo_header_wish">
+                            <img width="200vw" src="./img/index/logo_wish.png" alt="Logo_wish">
+                        </div>
+                    </header>
+
+                    <div class="shopping_cart">
+                        <img src="./img/index/shopping_cart.png" alt="shopping_cart">
                     </div>
-                    <div class="Qateam">
-                        <span style="margin: auto;">
-                            + QA Team
-                        </span>
+                    <div class="logo_wish_index">
+                        <img src="./img/index/wish_grande.png" alt="logo_wish_index">
+                    </div>
+
+                    <div class="textos_learning">
+                        <div class="learning">
+                            <span>
+                                Learning </br>
+                                Solutions
+                            </span>
+                        </div>
+                        <div class="Qateam">
+                            <span style="margin: auto;">
+                                + QA Team
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="intro">
             <div class="btnIndex">
-                <img src="./img/index/arrowintro.png" style="width: 3vw;">
+                <img src="./img/index/down.png" style="width: 10vw;">
+            </div>
+            <div class="rectangulo">
+                <img src="./img/index/rectangulo.png" alt="">
             </div>
         </div>
         <div class="overlay_oak">
-            <div class="cont" style="align-items: center;">
-                <img src="./img/index/OAK.gif" style="display: none; margin-top: 10vw; margin-left: 15vw; width: 20vw; opacity: 1;" class="tree">
+            <div class="cont">
+                <img src="./img/index/OAK.gif" class="tree" style="width: 100%; height: 100%;">                
             </div>
-        </div>        
+            <img src="./img/index/tp_wave2.png" class="tp_wave_2" style="display: none;">
+        </div>
+
     </div>
+
 </body>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/animsition.js"></script>
-<script src="../../js/script.js"></script>
+<script src="js/script.js"></script>
 
 <script>
-
-    $(".btnIndex").click(function () {
-        $(".btnIndex").animate({
-            opacity: "0"
-        }, 500)
-        $(".logodrpepper").animate({
-            opacity: "0"
-        }, 500)
-        $(".tp_wave_1").animate({
-            top: "-60vw",
-        }, 500)
-        $(".tp_wave_2").animate({
-            left: "15vw",
-            top: "27vw"
-        }, 500)
-        $(".textos_learning").animate({
-            top: "-12vw"
-        }, 300, function () {
+    n = 0
+    $(".btn_all_screen").click(function () {
+        if (n === 0) {
+            $(".btn_all_screen").css("cursor", "auto"),
+                $(".shopping_cart").addClass('shopping_cart_rotate')
+            $(".tp_wave_1").animate({
+                top: "6vw",
+                left: "-10vw"
+            }, 300)
             setTimeout(function () {
+                $(".shopping_cart").animate({
+                    left: "-100vw"
+                }, 200)
                 $(".tp_wave_1").animate({
-                    top: "-100vw",
-                }, 2500)
-                $(".tp_wave_2").animate({
-                    left: "15vw",
-                    top: "100vw"
-                }, 2500)
-                $(".textos_learning").animate({
-                    top: "-100vw"
+                    top: "2vw",
+                    left: "-4vw"
+                }, 300)
+            }, 500)
+            setTimeout(function () {
+                $(".logo_wish_index").animate({
+                    opacity: 1
+                }, 1000)
+                $(".tp_wave_1").animate({
+                    top: "-3vw",
+                    left: "5vw"
+                }, 300)
+            }, 700)
+
+            setTimeout(function () {
+                $(".logo_wish_index").animate({
+                    opacity: 0
                 }, 500)
-                $(".overlay_oak").toggleClass("scale-up-center");
-                setTimeout(function () {                    
-                    $(".tree").css("display", "block");
-                    $(".tree").toggleClass("scale-up-center");
-                    $(".tree").animate({
-                        opacity: 1,
-                        width: "30vw",
-                        height:"55vh"
-                    }, 100, function () {
-                        setTimeout(function () {
-                            localStorage.setItem("url", "./welcome.html")
-                            const redireccion = './redirecciones/redireccion.html';
-                            window.location.href = redireccion; 
-                        }, 5000);
-                    })
-                }, 500);
-            }, 1000);
-        })
-    });
+                $(".logo_header_wish").animate({
+                    opacity: 1
+                }, 500)
+                $(".tp_wave_1").animate({
+                    top: "-15vw",
+                    left: "15vw"
+                }, 1000)
+                $(".textos_learning").animate({
+                    top: "12vw"
+                }, 1500)
+                $(".intro").animate({
+                    top: "3vw"
+                }, 1500)
+            }, 1000)
+            n++
+        }
+    })
+
+    $(".btnIndex").click(function () {      
+        $(".tp_wave_2").css("display","initial")
+        $(".overlay_oak").animate({
+            marginTop: "0vh"
+        },1000)
+
+    })
+
 
     $(document).ready(function () {
-        $(".tp_wave_2").animate({
-            left: "-18vw",
-        }, 500, function () {
-            $(".logodrpepper").toggleClass("scale-up-center")
-            $(".tp_wave_2").animate({
-                top: "35vw"
-            }, 300, function () {
-                $(".tp_wave_1").animate({
-                    top: "-40vw",
-                }, 500)
-                $(".intro").animate({
-                    top: "20vw",
-                }, 500)
-            })
-        })
+
 
         //  script para que funcione la libreria de animacion
         $(".animsition").animsition({
