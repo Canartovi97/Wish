@@ -21,23 +21,7 @@
 
 
 /* colors */
-:root {
-    /* Colors */
-    --red-1: #CE1E57;
-    --red2:#9B3153;
-    --green1:#80C44D;
-    --white: #FFFFFF;
-    --white2: #F7F7F7;
-    --black: #443636;
-    --yellow-1: #FAA81A;
-    --yellow-2: #FFD100;
-    --orange-1: #F48221;
-    --orange-2: #FBA819;
-    --brown:#954E40;
-    --brown2:#612D23;        
-    --blue1:#1374BB;        
-    --blue2:#3DC7F0;        
-}
+
 
 i{
     margin-right: 4%;
